@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
                     ))
                 .toList()),
         TextBox(
-          controller: TextEditingController(text: Test.on(context).formula),
+          // controller: TextEditingController(text: Test.on(context).formula),
           onChanged: (val) => Test.of(context).setFormula(val),
         ),
         Text(Test.on(context).formula),
