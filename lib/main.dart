@@ -16,19 +16,19 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ListenableProvider<Test>(create: (context) {
-          Test.context = context;
-          return Test();
-        })
+        ListenableProvider<Test>(
+          create: (context) {
+            Test.context = context;
+            return Test();
+          },
+        ),
       ],
       builder: (_, __) {
         return FluentApp(
           title: 'Flutter Parse Demo',
           theme: ThemeData(),
           home: NavigationView(
-            pane: NavigationPane(
-              displayMode: PaneDisplayMode.compact,
-            ),
+            pane: NavigationPane(displayMode: PaneDisplayMode.compact),
             content: const Home(),
           ),
         );
