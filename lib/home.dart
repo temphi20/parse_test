@@ -10,21 +10,16 @@ class Home extends StatelessWidget {
     return ListView(
       children: [
         Row(
-          children: [
-            Button(
-              child: const Text("one"),
-              onPressed: () => Test.of(context).addList("o"),
-            ),
-            Button(
-              child: const Text("two"),
-              onPressed: () => Test.of(context).addList("t"),
-            ),
-            Button(
-              child: const Text("three"),
-              onPressed: () => Test.of(context).addList("h"),
-            ),
-          ],
-        ),
+            children: Test.on(context)
+                .series
+                .labels
+                .map((e) => Button(
+                      child: Text(e),
+                      onPressed: () {
+                        Test.of(context).addList(e);
+                      },
+                    ))
+                .toList()),
         TextBox(
           controller: TextEditingController(text: Test.on(context).formula),
           onChanged: (val) => Test.of(context).setFormula(val),

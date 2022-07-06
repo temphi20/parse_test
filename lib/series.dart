@@ -2,9 +2,9 @@ import 'dart:math';
 
 class Series {
   final Map<String, List<num>> _series = {
-    "o": List.generate(1024, (index) => index),
-    "t": List.generate(2048, (index) => index * index),
-    "h": List.generate(512, (index) => index * sqrt(index)),
+    "o1": List.generate(1024, (index) => index),
+    "o2": List.generate(2048, (index) => index * index),
+    "o3": List.generate(512, (index) => index * sqrt(index)),
   };
 
   int get maxLength {

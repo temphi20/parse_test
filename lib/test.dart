@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:mate/mate.dart';
 import 'package:provider/provider.dart';
 import 'package:math_parser/math_parser.dart';
 
@@ -38,7 +35,7 @@ class Test extends ChangeNotifier {
       // result = mate.calculate(val) ?? 0;
 
     } catch (e) {
-      debugPrint("setFormula / " + e.toString());
+      // debugPrint("setFormula / " + e.toString());
     }
 
     update();
@@ -56,13 +53,13 @@ class Test extends ChangeNotifier {
           (index) =>
               node!.calc(MathVariableValues(series.get1Dimension(index)))));
 
-      debugPrint(results.toString());
+      // debugPrint(results.toString());
       // for (int index = 0; index < series.maxLength; index++) {
       //   results.add(node?.calc(values));
       // }
       // }
     } catch (e) {
-      debugPrint("calculate / " + e.toString());
+      // debugPrint("calculate / " + e.toString());
     }
 
     update();
