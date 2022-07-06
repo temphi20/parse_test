@@ -20,25 +20,29 @@ class Test extends ChangeNotifier {
 
   void update() => notifyListeners();
 
+  void setNode() {
+    node = MathNodeExpression.fromString(formula, variableNames: series.labels);
+  }
+
   void addList(String val) {
     formula += val;
-    update();
+    setNode();
+    calculate();
   }
 
   void setFormula(String val) {
     try {
       formula = val.toLowerCase();
-      node =
-          MathNodeExpression.fromString(formula, variableNames: series.labels);
+      setNode();
       // result = MathNodeExpression.fromString(val)
       //     .calc(MathVariableValues({'x': 20}));
       // result = mate.calculate(val) ?? 0;
 
     } catch (e) {
-      // debugPrint("setFormula / " + e.toString());
+      debugPrint("setFormula / " + e.toString());
     }
 
-    update();
+    // update();
 
     calculate();
   }
@@ -59,7 +63,7 @@ class Test extends ChangeNotifier {
       // }
       // }
     } catch (e) {
-      // debugPrint("calculate / " + e.toString());
+      debugPrint("calculate / " + e.toString());
     }
 
     update();
