@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:math_parser/math_parser.dart';
@@ -34,6 +36,16 @@ class Test extends ChangeNotifier {
     // formula += val;
     setNode();
     calculate();
+  }
+
+  void addSeries() {
+    const lens = [512, 1024, 2048, 4096];
+    final Random rand = Random();
+    final int index = rand.nextInt(4);
+    final int len = lens[index];
+    series.addSeries("r${series.labels.length - 2}",
+        List<num>.generate(len, (index) => rand.nextInt(len)));
+    update();
   }
 
   void setFormula(String val) {

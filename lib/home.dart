@@ -9,17 +9,32 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        // Row(
+        //   children: Test.on(context)
+        //       .series
+        //       .labels
+        //       .map((e) => Button(
+        //             child: Text(e),
+        //             onPressed: () {
+        //               Test.of(context).addList(e);
+        //             },
+        //           ))
+        //       .toList(),
+        // ),
+
         Row(
-            children: Test.on(context)
-                .series
-                .labels
-                .map((e) => Button(
-                      child: Text(e),
-                      onPressed: () {
-                        Test.of(context).addList(e);
-                      },
-                    ))
-                .toList()),
+          children: [
+            for (String label in Test.on(context).series.labels)
+              Button(
+                child: Text(label),
+                onPressed: () => Test.of(context).addList(label),
+              ),
+            Button(
+              child: const Text("+ add random"),
+              onPressed: () => Test.of(context).addSeries(),
+            ),
+          ],
+        ),
         TextBox(
           // controller: TextEditingController(text: Test.on(context).formula),
           onChanged: (val) => Test.of(context).setFormula(val),
