@@ -30,7 +30,8 @@ class Test extends ChangeNotifier {
   }
 
   void addList(String val) {
-    formula += val;
+    formula = val;
+    // formula += val;
     setNode();
     calculate();
   }

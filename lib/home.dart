@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
           // controller: TextEditingController(text: Test.on(context).formula),
           onChanged: (val) => Test.of(context).setFormula(val),
         ),
-        Text(Test.on(context).formula),
+        // Text(Test.on(context).formula),
         // Row(
         //   children: [
         //     const Text("= "),
