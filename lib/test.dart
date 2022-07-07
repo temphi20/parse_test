@@ -2,6 +2,7 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:math_parser/math_parser.dart';
 
+import 'definition.dart';
 import 'series.dart';
 
 class Test extends ChangeNotifier {
@@ -21,7 +22,11 @@ class Test extends ChangeNotifier {
   void update() => notifyListeners();
 
   void setNode() {
-    node = MathNodeExpression.fromString(formula, variableNames: series.labels);
+    node = MathNodeExpression.fromString(
+      formula,
+      variableNames: series.labels,
+      customFunctions: MathCustomFunctions({Pow()}),
+    );
   }
 
   void addList(String val) {
